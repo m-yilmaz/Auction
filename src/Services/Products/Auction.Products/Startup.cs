@@ -1,3 +1,6 @@
+using Auction.Products.Data;
+using Auction.Products.Data.Interfaces;
+using Auction.Products.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
@@ -28,6 +32,14 @@ namespace Auction.Products
         {
 
             services.AddControllers();
+
+            services.Configure<ProductDatabaseSettings>(Configuration.GetSection(nameof(ProductDatabaseSettings)));
+
+            // TODO: Araþtýrýlacak.
+            services.AddSingleton<IProductDatabaseSettings>(x => x.GetRequiredService<IOptions<ProductDatabaseSettings>>().Value);
+
+            services.AddTransient<IProductContext, ProductContext>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Auction.Products", Version = "v1" });

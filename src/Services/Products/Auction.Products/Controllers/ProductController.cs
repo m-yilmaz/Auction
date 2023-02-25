@@ -11,7 +11,7 @@ using ZstdSharp.Unsafe;
 
 namespace Auction.Products.Controllers
 {
-    [Route("api/v1[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {

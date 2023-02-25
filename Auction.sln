@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{BA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{CF2B818A-AAE3-42B4-848D-62B5743394EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auction.Products", "src\Services\Products\Auction.Products\Auction.Products.csproj", "{6BD3AB7D-E69F-4949-8D98-1B1C84958517}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auction.Products", "src\Services\Products\Auction.Products\Auction.Products.csproj", "{6BD3AB7D-E69F-4949-8D98-1B1C84958517}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Produts", "Produts", "{63758339-62FE-40E1-BB7D-6BBCC98E04C6}"
 EndProject
@@ -20,6 +20,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order", "Order", "{8F4FB223-97AE-468F-A084-3283BAD0E5BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sourcing", "Sourcing", "{BA2BC8F4-52CE-4A72-9EA2-354CF992EC06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CD918146-A29E-40D9-B664-4BADEA8B3AF6}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

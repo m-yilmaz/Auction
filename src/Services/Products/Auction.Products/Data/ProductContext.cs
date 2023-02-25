@@ -14,9 +14,10 @@ namespace Auction.Products.Data
             var database = client.GetDatabase(settings.DatabaseName);
 
             Products = database.GetCollection<Product>(settings.CollectionName);
+            ProductContextSeed.SeedData(Products);
         }
 
 
-        public IMongoCollection<Product> Products { get;  }
+        public IMongoCollection<Product> Products { get; }
     }
 }

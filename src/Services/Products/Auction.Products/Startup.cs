@@ -1,5 +1,7 @@
 using Auction.Products.Data;
 using Auction.Products.Data.Interfaces;
+using Auction.Products.Repositories;
+using Auction.Products.Repositories.Interfaces;
 using Auction.Products.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,6 +41,7 @@ namespace Auction.Products
             services.AddSingleton<IProductDatabaseSettings>(x => x.GetRequiredService<IOptions<ProductDatabaseSettings>>().Value);
 
             services.AddTransient<IProductContext, ProductContext>();
+            services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddSwaggerGen(c =>
             {

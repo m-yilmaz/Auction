@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  auctiondb:
+    image: mongo
+
+  auction.products:
+    image: ${DOCKER_REGISTRY-}auctionproducts
+    build:
+      context: .
+      dockerfile: src/Services/Products/Auction.Products/Dockerfile

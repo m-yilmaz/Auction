@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  auctiondb:
+    container_name: auctiondb
+    restart: always
+    volumes:
+       - ${WEBAPP_STORAGE_HOME}/site:/data/db
+    ports:
+       - "27017:27017"
+  auction.products:
+    container_name: auctionproducts
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ProductDatabaseSettings:ConnectionString=mongodb://auctiondb:27017"
+    depends_on:
+        - auctiondb
+    ports:
+      - "8000:80"
+    volumes:
+      - ${HOME}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${HOME}/.microsoft/usersecrets/:/root/.microsoft/usersecrets

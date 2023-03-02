@@ -2,6 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Auction.Sourcing.Data;
+using Auction.Sourcing.Data.Interface;
+using Auction.Sourcing.Repositories;
+using Auction.Sourcing.Repositories.Interfaces;
+using Auction.Sourcing.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 namespace Auction.Sourcing
@@ -28,6 +34,14 @@ namespace Auction.Sourcing
         {
 
             services.AddControllers();
+
+            services.Configure<SourcingDatabaseSettings>(Configuration.GetSection(nameof(SourcingDatabaseSettings)));
+
+            services.AddTransient<ISourcingContext, SourcingContext>();
+            services.AddSingleton<ISourcingDatabaseSettings>(sp => sp.GetRequiredService<IOptions<SourcingDatabaseSettings>>().Value);
+            services.AddTransient<IAuctionRepository, AuctionRepository>();
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Auction.Sourcing", Version = "v1" });

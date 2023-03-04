@@ -17,7 +17,7 @@ namespace Auction.Sourcing.Data
             }
         }
 
-        private IEnumerable<Entities.Auction> GetPreConfiguredAuctions()
+        private static IEnumerable<Entities.Auction> GetPreConfiguredAuctions()
         {
             return new List<Entities.Auction>()
             {

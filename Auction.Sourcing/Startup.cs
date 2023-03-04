@@ -40,7 +40,7 @@ namespace Auction.Sourcing
             services.AddTransient<ISourcingContext, SourcingContext>();
             services.AddSingleton<ISourcingDatabaseSettings>(sp => sp.GetRequiredService<IOptions<SourcingDatabaseSettings>>().Value);
             services.AddTransient<IAuctionRepository, AuctionRepository>();
-            services.AddTransient<IBidRepository, IBidRepository>();
+            services.AddTransient<IBidRepository, BidRepository>();
 
 
             services.AddSwaggerGen(c =>

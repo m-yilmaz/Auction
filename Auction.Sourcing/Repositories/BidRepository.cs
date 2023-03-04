@@ -9,11 +9,11 @@ using MongoDB.Driver;
 
 namespace Auction.Sourcing.Repositories
 {
-    public class BidRepositoriy : IBidRepository
+    public class BidRepository : IBidRepository
     {
         private readonly ISourcingContext _context;
 
-        public BidRepositoriy(ISourcingContext context)
+        public BidRepository(ISourcingContext context)
         {
             _context = context;
         }

@@ -4,7 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "auction.products": "StartDebugging"
+        "auction.products": "StartDebugging",
+        "auction.sourcing": "StartDebugging"
       }
     }
   }

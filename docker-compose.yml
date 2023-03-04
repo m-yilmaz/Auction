@@ -9,3 +9,10 @@ services:
     build:
       context: .
       dockerfile: src/Services/Products/Auction.Products/Dockerfile
+
+  auction.sourcing:
+    image: ${DOCKER_REGISTRY-}auctionsourcing
+    build:
+      context: .
+      dockerfile: Auction.Sourcing/Dockerfile
+

@@ -1,7 +1,21 @@
-# Auctions
+﻿# Auctions
 
 ## Project Structere
 
+
+## Communication in a Microservices Architecture
+
+* Communication between Microservices
+
+* Implementing event - based communication between Microservices
+
+* Producer on Sourcing Web API
+
+* Consumer on Order Web API
+
+* Pollt Framework
+
+* RabiitMQ Docker Implementation
 
 ## Packages
 ```

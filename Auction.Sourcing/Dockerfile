@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["Auction.Sourcing/Auction.Sourcing.csproj", "Auction.Sourcing/"]
+COPY ["src/Common/EventBusRabbitMQ/EventBusRabbitMQ.csproj", "src/Common/EventBusRabbitMQ/"]
 RUN dotnet restore "Auction.Sourcing/Auction.Sourcing.csproj"
 COPY . .
 WORKDIR "/src/Auction.Sourcing"

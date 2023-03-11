@@ -4,6 +4,9 @@ services:
   auctiondb:
     image: mongo
 
+  rabbimq:
+    image: rabbitmq:3-management
+
   auction.products:
     image: ${DOCKER_REGISTRY-}auctionproducts
     build:

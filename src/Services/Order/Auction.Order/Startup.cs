@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Ordering.Application;
+using Ordering.Infrastructure;
 
 namespace Auction.Order
 {
@@ -27,6 +29,15 @@ namespace Auction.Order
         {
 
             services.AddControllers();
+
+            #region Add Infrastructere Dependencies
+            services.AddInfrastructere(Configuration);
+            #endregion
+
+            #region Add Application Dependencies
+            services.AddApplication();
+            #endregion
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Auction.Order", Version = "v1" });

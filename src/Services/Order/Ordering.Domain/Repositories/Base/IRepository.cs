@@ -14,7 +14,7 @@ namespace Ordering.Domain.Repositories.Base
 
         Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> predicate);
         Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> predicate = null,
-                                      Func<IQueryable<T>, IOrderedEnumerable<T>> orderBy = null,
+                                      Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
                                       string includeString = null,
                                       bool disableTracking = true);
 

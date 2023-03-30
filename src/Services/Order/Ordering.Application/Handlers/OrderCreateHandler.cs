@@ -26,11 +26,7 @@ namespace Ordering.Application.Handlers
 
         public async Task<OrderResponse> Handle(OrderCreateCommand request, CancellationToken cancellationToken)
         {
-            var orderEntity = _mapper.Map<Order>(request);
-            if (orderEntity == null)
-            {
-                throw new ApplicationException("Entity could not be mapped!");
-            }
+            var orderEntity = _mapper.Map<Order>(request) ?? throw new ApplicationException("Entity could not be mapped!");
 
             var order = await _orderRepository.AddAsync(orderEntity);
 
